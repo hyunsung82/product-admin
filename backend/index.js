@@ -1,22 +1,23 @@
-const express = require('express');
 const mysql = require('mysql2');
+const express = require('express');
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const conn = mysql.createConnection({
-  host: 'your-rds-endpoint',
+// ✅ 여기를 실제 RDS 정보로 수정
+const connection = mysql.createConnection({
+  host: 'database-2.cxmu6gksksr8.eu-north-1.rds.amazonaws.com',
   user: 'admin',
-  password: 'your-password',
+  password: 'Lastpick12',
   database: 'productdb'
 });
 
 app.get('/products', (req, res) => {
-  conn.query('SELECT * FROM 상품정보', (err, rows) => {
-    if (err) return res.status(500).send(err);
-    res.send(rows);
+  connection.query('SELECT * FROM 상품정보', (error, results) => {
+    if (error) throw error;
+    res.json(results);
   });
 });
 
