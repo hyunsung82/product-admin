@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -5,9 +6,10 @@ export default function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/products').then((res) => {
-      setProducts(res.data);
-    });
+    axios.get('https://product-admin-07vl.onrender.com/products')
+      .then((res) => {
+        setProducts(res.data);
+      });
   }, []);
 
   return (
@@ -23,8 +25,8 @@ export default function App() {
           </tr>
         </thead>
         <tbody>
-          {products.map((p) => (
-            <tr key={p.상품코드}>
+          {products.map((p, rowIdx) => (
+            <tr key={rowIdx}>
               {Object.values(p).map((val, idx) => (
                 <td key={idx} className="border p-2">{val}</td>
               ))}
