@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -9,6 +8,9 @@ export default function App() {
     axios.get('https://product-admin-07vl.onrender.com/products')
       .then((res) => {
         setProducts(res.data);
+      })
+      .catch((err) => {
+        console.error('API 요청 실패:', err);
       });
   }, []);
 
