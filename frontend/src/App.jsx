@@ -5,7 +5,7 @@ export default function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://product-admin-07vl.onrender.com/products')
+    axios.get('https://product-admin-1-lfaz.onrender.com/api/products')
       .then((res) => {
         setProducts(res.data);
       })
