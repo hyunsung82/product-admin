@@ -5,7 +5,7 @@ export default function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://product-admin-1-lfaz.onrender.com/api/products')
+    axios.get('https://product-admin-1-lfaz.onrender.com/products') // ← 여기 수정
       .then((res) => {
         setProducts(res.data);
       })
@@ -36,6 +36,10 @@ export default function App() {
           ))}
         </tbody>
       </table>
+    </div>
+  );
+}
+
     </div>
   );
 }
