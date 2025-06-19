@@ -11,7 +11,7 @@ app.use(express.json());
 
 const connection = mysql.createConnection({
   host: 'database-2.cxmu6gksksr8.eu-north-1.rds.amazonaws.com',
-  user: 'g9store',
+  user: 'admin',
   password: 'Lastpick12',
   database: 'productdb'
 });
