@@ -7,7 +7,7 @@ export default function App() {
   const [newProduct, setNewProduct] = useState({ name: '', price: '', expiration: '' });
   const [editingProduct, setEditingProduct] = useState(null);
 
-  const API_URL = 'http://localhost:10000/api/products';
+  const API_URL = 'https://your-backend-server.onrender.com/api/products';
 
   useEffect(() => {
     fetchProducts();
@@ -15,8 +15,11 @@ export default function App() {
 
   const fetchProducts = () => {
     axios.get(API_URL)
-      .then((res) => setProducts(res.data))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        console.log("✅ 서버 응답 데이터:", res.data);  // 디버깅용 콘솔 출력 추가
+        setProducts(res.data);
+      })
+      .catch((err) => console.error("❌ 에러 발생:", err));
   };
 
   const handleInputChange = (e, isEdit = false) => {
