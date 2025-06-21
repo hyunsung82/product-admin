@@ -7,7 +7,7 @@ export default function App() {
   const [newProduct, setNewProduct] = useState({ name: '', price: '', expiration: '' });
   const [editingProduct, setEditingProduct] = useState(null);
 
-  const API_URL = 'https://your-backend-server.onrender.com/api/products';
+  const API_URL = 'https://product-admin-1-lfaz.onrender.com/api/products';
 
   useEffect(() => {
     fetchProducts();
